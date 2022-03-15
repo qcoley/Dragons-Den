@@ -364,7 +364,7 @@ def blazerpath():
 
         for Orientation in range(1):
             attended = input(
-                "--- Did student attend orientation? (Yes or No) ")
+                "\n--- Did student attend orientation? (Yes or No) ")
 
             if attended == "Yes" or attended == "yes":
                 blazer_path.append(1)
