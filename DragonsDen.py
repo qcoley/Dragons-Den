@@ -1,5 +1,7 @@
-######################       Dragon's Den       ###############################
-######################  Quinton, Zach, Edward   ###############################
+# Dragon's Den
+# Quinton Coley, Zach Naden, Edward Smith
+
+import os.path
 
 print('')
 print('-----------------------------------------------------------------------')
@@ -7,405 +9,402 @@ print("---------------------- Welcome To Dragon's Den ------------------------")
 print('-----------------------------------------------------------------------')
 print('')
 
-#FRAMEWORK FUNCTION TO CALL OTHER APPLICATIONS
-def main():   
-    
+
+# FRAMEWORK FUNCTION TO CALL OTHER APPLICATIONS
+def main():
     print('')
     stud = input("--- Are you new to the Dragon's Den? (Yes or No) ")
-    
+
     if stud == 'No' or stud == 'no':
         print('')
         print('---', 'Great, opening main menu')
-        doWhat()
-    
+        do_what()
+
     if stud == 'Yes' or stud == 'yes':
-        secondDoor()
-        
-def secondDoor():
-    
+        second_door()
+
+
+def second_door():
     setup = input("\n--- Would you like to join the Dragon's Den? (Yes or No) ")
-    
+
     if setup == 'Yes' or setup == 'yes':
         print('')
         print('---', "Great, lets get you signed up!")
         register()
-    
-    if setup == 'No' or setup =='no':
-        print ('')
-        print ('---', "Bye now!")
-            
-def doWhat():
-    
+
+    if setup == 'No' or setup == 'no':
+        print('')
+        print('---', "Bye now!")
+
+
+def do_what():
     print('')
     print('---', "What do you want to do? ")
     print('')
     print('---', "Your choices are DragonsDenConnect or BlazerPath: ")
     var = input("")
-    
+
     if var == "DragonsDenConnect" or var == "dragonsdenconnect":
-        DragonsDenConnect()
-    
+        dragons_den_connect()
+
     if var == "BlazerPath" or var == "blazerpath":
         blazerpath()
-    
+
     else:
         print('')
-        print('---','Please make an appropriate selection!')
-        doWhat()
+        print('---', 'Please make an appropriate selection!')
+        do_what()
+
 
 def register():
-    
-    f = open('userPass.txt','a')
+    f = open('userPass.txt', 'a')
     print('')
-    
+
     nam = input('--- Enter your desired username: ')
     print('')
-    
+
     pas = input('--- Enter your desired password: ')
     f.write("\n")
-    f.write(nam+","+pas)
-    
+    f.write(nam + "," + pas)
+
     print("\n *** You have been added to the server!", nam, '***')
-    doWhat()
+    do_what()
     f.close()
+
 
 ###############################################################################
 
-#DICTIONARIES FOR DRAGONSDEN CONNECT
-#LISTINGS (CAN ALWAYS ADD MORE)
-Hobbies =  ['Gaming', 'Concerts', 'Outdoors', 'Fitness', 'Paintball']
-Schools =  ['UAB', 'Auburn', 'Jeff State', 'University of Alabama', 'Online']
-Fields  =  ['Medical', 'CS', 'Engineering', 'Sociology', 'Biology']
-Years   =  ['Freshman', 'Sophmore', 'Junior', 'Senior', 'Graduate']
+# DICTIONARIES FOR DRAGONSDEN CONNECT
+# LISTINGS (CAN ALWAYS ADD MORE)
+Hobbies = ['Gaming', 'Concerts', 'Outdoors', 'Fitness', 'Paintball']
+Schools = ['UAB', 'Auburn', 'Jeff State', 'University of Alabama', 'Online']
+Fields = ['Medical', 'CS', 'Engineering', 'Sociology', 'Biology']
+Years = ['Freshman', 'Sophomore', 'Junior', 'Senior', 'Graduate']
 
-#OTHER STUDENTS #IRL WOULD PULL FROM DATABASE OF STUDENTS SIGNED INTO D.D.
-Zach    =  {
-'School': 'UAB', 'Field': 'CS', 'Year': 'Sophmore', 'Hobby': 'Fitness'}
-Edward  =  {
-'School': 'UAB', 'Field': 'CS', 'Year': 'Sophmore', 'Hobby': 'Paintball'}
-Ragan   =  {
-'School': 'UAB', 'Field': 'Sociology', 'Year': 'Senior', 'Hobby': 'Outdoors'}
-Samuel  =  {
-'School': 'Jeff State', 'Field': 'Engineering', 'Year': 'Sophmore', 'Hobby': 'Outdoors'}
-Alosia  =  {
-'School': 'Online', 'Field': 'Biology', 'Year': 'Graduate', 'Hobby': 'Gaming'}
-Evelyn  =  {
-'School': 'Auburn', 'Field': 'Sociology', 'Year': 'Freshman', 'Hobby': 'Outdoors'}
-James   =  {
-'School': 'Auburn', 'Field': 'CS', 'Year': 'Junior', 'Hobby': 'Fitness'}
-Liam    =  {
-'School': 'University of Alabama', 'Field': 'Engineering', 'Year': 'Senior', 'Hobby': 'Conecerts'}
-Emma    =  {
-'School': 'University of Alabama', 'Field': 'Medical', 'Year': 'Junior', 'Hobby': 'Gaming'}
-Noah    =  {
-'School': 'Jeff State', 'Field': 'Medical', 'Year': 'Freshman', 'Hobby': 'Concerts'}
+# OTHER STUDENTS #IRL WOULD PULL FROM DATABASE OF STUDENTS SIGNED IN TO D.D.
+Zach = {
+    'School': 'UAB', 'Field': 'CS', 'Year': 'Sophomore', 'Hobby': 'Fitness'}
+Edward = {
+    'School': 'UAB', 'Field': 'CS', 'Year': 'Sophomore', 'Hobby': 'Paintball'}
+Ragan = {
+    'School': 'UAB', 'Field': 'Sociology', 'Year': 'Senior', 'Hobby': 'Outdoors'}
+Samuel = {
+    'School': 'Jeff State', 'Field': 'Engineering', 'Year': 'Sophomore', 'Hobby': 'Outdoors'}
+Alosia = {
+    'School': 'Online', 'Field': 'Biology', 'Year': 'Graduate', 'Hobby': 'Gaming'}
+Evelyn = {
+    'School': 'Auburn', 'Field': 'Sociology', 'Year': 'Freshman', 'Hobby': 'Outdoors'}
+James = {
+    'School': 'Auburn', 'Field': 'CS', 'Year': 'Junior', 'Hobby': 'Fitness'}
+Liam = {
+    'School': 'University of Alabama', 'Field': 'Engineering', 'Year': 'Senior', 'Hobby': 'Concerts'}
+Emma = {
+    'School': 'University of Alabama', 'Field': 'Medical', 'Year': 'Junior', 'Hobby': 'Gaming'}
+Noah = {
+    'School': 'Jeff State', 'Field': 'Medical', 'Year': 'Freshman', 'Hobby': 'Concerts'}
 
 StudentList = [
-Zach, Edward, Ragan, Samuel, Alosia, Evelyn, James, Liam, Emma, Noah]
+    Zach, Edward, Ragan, Samuel, Alosia, Evelyn, James, Liam, Emma, Noah]
 
 MyStudentsList = []
 
+
 ###############################################################################
 
-#FUNCTIONS TO TAKE INPUT FROM USER AND STORE FOR USE IN MAIN FUNCTION
-def SchoolsFunction():
-    
+# FUNCTIONS TO TAKE INPUT FROM USER AND STORE FOR USE IN MAIN FUNCTION
+def schools_function():
     print('')
     print('---', Schools)
-    Stest = input('--- Choose from list: Which school do you attend? ')
-    
-    if Stest not in Schools:
-        SchoolsFunction()
-    
-    else:
-        School = Stest 
-        MyStudentsList.append(School)
+    stest = input('--- Choose from list: Which school do you attend? ')
 
-def FieldsFunction():
-    
+    if stest not in Schools:
+        schools_function()
+
+    else:
+        school = stest
+        MyStudentsList.append(school)
+
+
+def fields_function():
     print('')
     print('---', Fields)
-    Ftest = input('--- Choose from list: What are you studying? ')
-    
-    if Ftest not in Fields:
-        FieldsFunction()
-    
-    else:
-        Field = Ftest
-        MyStudentsList.append(Field)
+    ftest = input('--- Choose from list: What are you studying? ')
 
-def YearsFunction(): 
-    
+    if ftest not in Fields:
+        fields_function()
+
+    else:
+        field = ftest
+        MyStudentsList.append(field)
+
+
+def years_function():
     print('')
     print('---', Years)
-    Ytest = input('--- Choose from list: What year student are you? ')
-    
-    if Ytest not in Years:
-        YearsFunction()
-    
-    else:
-        Year = Ytest
-        MyStudentsList.append(Year)
+    ytest = input('--- Choose from list: What year student are you? ')
 
-def HobbiesFunction(): 
-    
+    if ytest not in Years:
+        years_function()
+
+    else:
+        year = ytest
+        MyStudentsList.append(year)
+
+
+def hobbies_function():
     print('')
     print('---', Hobbies)
-    Htest = input('--- Choose from list: What do you enjoy doing? ')
-    
-    if Htest not in Hobbies:
-        HobbiesFunction()
-    
+    htest = input('--- Choose from list: What do you enjoy doing? ')
+
+    if htest not in Hobbies:
+        hobbies_function()
+
     else:
-        Hobby = Htest
-        MyStudentsList.append(Hobby)
+        hobby = htest
+        MyStudentsList.append(hobby)
 
 
-######################  Dragon's Den Connect    ###############################
-######################  Quinton, Zach, Edward   ###############################
+# Dragon's Den Connect App ---------------------------------------------------------------------------------------------
 
-#MAIN FUNCTION FOR CONNECT
-def DragonsDenConnect():
-    
+# MAIN FUNCTION FOR CONNECTING
+def dragons_den_connect():
     print('')
     print('-----------------------------------------------------------------------')
     print('----------------- Dragons Den Connection Application ------------------')
     print('-----------------------------------------------------------------------')
     print('')
-    
-    #MATCHES (STORES COUNTER FOR COMMON INTERESTS)
-    SC1 = 0
-    SC2 = 0
-    SC3 = 0
-    SC4 = 0
-    SC5 = 0
-    SC6 = 0
-    SC7 = 0
-    SC8 = 0
-    SC9 = 0
-    SC10 = 0
 
-###############################################################################
-    
-    #TAKE INPUTS FROM USER AND ADD TO DICTIONARY
-    SchoolsFunction()
-    FieldsFunction()
-    YearsFunction()
-    HobbiesFunction()
-    
-    School = MyStudentsList[0]
-    Field  = MyStudentsList[1]       
-    Year   = MyStudentsList[2]
-    Hobby  = MyStudentsList[3]
-    
-    StudentDictionary = {
-    'School': School, 'Field': Field, 'Year': Year, 'Hobby': Hobby }
-   
-###############################################################################    
-    
-    if StudentList[0]['School'] == StudentDictionary['School']:
-        SC1 += 1
-    if StudentList[1]['School'] == StudentDictionary['School']:
-        SC2 += 1
-    if StudentList[2]['School'] == StudentDictionary['School']:
-        SC3 += 1
-    if StudentList[3]['School'] == StudentDictionary['School']:
-        SC4 += 1
-    if StudentList[4]['School'] == StudentDictionary['School']:
-        SC5 += 1
-    if StudentList[5]['School'] == StudentDictionary['School']:
-        SC6 += 1
-    if StudentList[6]['School'] == StudentDictionary['School']:
-        SC7 += 1
-    if StudentList[7]['School'] == StudentDictionary['School']:
-        SC8 += 1
-    if StudentList[8]['School'] == StudentDictionary['School']:
-        SC9 += 1
-    if StudentList[9]['School'] == StudentDictionary['School']:
-        SC10 += 1
+    # MATCHES (STORES COUNTER FOR COMMON INTERESTS)
+    sc1 = 0
+    sc2 = 0
+    sc3 = 0
+    sc4 = 0
+    sc5 = 0
+    sc6 = 0
+    sc7 = 0
+    sc8 = 0
+    sc9 = 0
+    sc10 = 0
 
-###############################################################################    
+    ###############################################################################
 
-    if StudentList[0]['Field'] == StudentDictionary['Field']:
-        SC1 += 1
-    if StudentList[1]['Field'] == StudentDictionary['Field']:
-        SC2 += 1
-    if StudentList[2]['Field'] == StudentDictionary['Field']:
-        SC3 += 1
-    if StudentList[3]['Field'] == StudentDictionary['Field']:
-        SC4 += 1
-    if StudentList[4]['Field'] == StudentDictionary['Field']:
-        SC5 += 1
-    if StudentList[5]['Field'] == StudentDictionary['Field']:
-        SC6 += 1
-    if StudentList[6]['Field'] == StudentDictionary['Field']:
-        SC7 += 1
-    if StudentList[7]['Field'] == StudentDictionary['Field']:
-        SC8 += 1
-    if StudentList[8]['Field'] == StudentDictionary['Field']:
-        SC9 += 1
-    if StudentList[9]['Field'] == StudentDictionary['Field']:
-        SC10 += 1
+    # TAKE INPUTS FROM USER AND ADD TO DICTIONARY
+    schools_function()
+    fields_function()
+    years_function()
+    hobbies_function()
 
-###############################################################################
+    school = MyStudentsList[0]
+    field = MyStudentsList[1]
+    year = MyStudentsList[2]
+    hobby = MyStudentsList[3]
 
-    if StudentList[0]['Year'] == StudentDictionary['Year']:
-        SC1 += 1
-    if StudentList[1]['Year'] == StudentDictionary['Year']:
-        SC2 += 1
-    if StudentList[2]['Year'] == StudentDictionary['Year']:
-        SC3 += 1
-    if StudentList[3]['Year'] == StudentDictionary['Year']:
-        SC4 += 1
-    if StudentList[4]['Year'] == StudentDictionary['Year']:
-        SC5 += 1
-    if StudentList[5]['Year'] == StudentDictionary['Year']:
-        SC6 += 1
-    if StudentList[6]['Year'] == StudentDictionary['Year']:
-        SC7 += 1
-    if StudentList[7]['Year'] == StudentDictionary['Year']:
-        SC8 += 1
-    if StudentList[8]['Year'] == StudentDictionary['Year']:
-        SC9 += 1
-    if StudentList[9]['Year'] == StudentDictionary['Year']:
-        SC10 += 1
+    student_dictionary = {
+        'School': school, 'Field': field, 'Year': year, 'Hobby': hobby}
 
-###############################################################################
-    
-    if StudentList[0]['Hobby'] == StudentDictionary['Hobby']:
-        SC1 += 1
-    if StudentList[1]['Hobby'] == StudentDictionary['Hobby']:
-        SC2 += 1
-    if StudentList[2]['Hobby'] == StudentDictionary['Hobby']:
-        SC3 += 1
-    if StudentList[3]['Hobby'] == StudentDictionary['Hobby']:
-        SC4 += 1
-    if StudentList[4]['Hobby'] == StudentDictionary['Hobby']:
-        SC5 += 1
-    if StudentList[5]['Hobby'] == StudentDictionary['Hobby']:
-        SC6 += 1
-    if StudentList[6]['Hobby'] == StudentDictionary['Hobby']:
-        SC7 += 1
-    if StudentList[7]['Hobby'] == StudentDictionary['Hobby']:
-        SC8 += 1
-    if StudentList[8]['Hobby'] == StudentDictionary['Hobby']:
-        SC9 += 1
-    if StudentList[9]['Hobby'] == StudentDictionary['Hobby']:
-        SC10 += 1
-    
-###############################################################################    
-    
-    CounterDictionary = {
-    'Zach': SC1, 'Edward': SC2, 'Ragan': SC3,
-    'Samuel': SC4, 'Alosia': SC5, 'Evelyn': SC6, 'James': SC7,
-    'Liam': SC8, 'Emma': SC9, 'Noah': SC10 }
-    
-    print(CounterDictionary)
-    
-    MaxInterest = max(CounterDictionary, key = CounterDictionary.get)
-    
+    ###############################################################################
+
+    if StudentList[0]['School'] == student_dictionary['School']:
+        sc1 += 1
+    if StudentList[1]['School'] == student_dictionary['School']:
+        sc2 += 1
+    if StudentList[2]['School'] == student_dictionary['School']:
+        sc3 += 1
+    if StudentList[3]['School'] == student_dictionary['School']:
+        sc4 += 1
+    if StudentList[4]['School'] == student_dictionary['School']:
+        sc5 += 1
+    if StudentList[5]['School'] == student_dictionary['School']:
+        sc6 += 1
+    if StudentList[6]['School'] == student_dictionary['School']:
+        sc7 += 1
+    if StudentList[7]['School'] == student_dictionary['School']:
+        sc8 += 1
+    if StudentList[8]['School'] == student_dictionary['School']:
+        sc9 += 1
+    if StudentList[9]['School'] == student_dictionary['School']:
+        sc10 += 1
+
+    ###############################################################################
+
+    if StudentList[0]['Field'] == student_dictionary['Field']:
+        sc1 += 1
+    if StudentList[1]['Field'] == student_dictionary['Field']:
+        sc2 += 1
+    if StudentList[2]['Field'] == student_dictionary['Field']:
+        sc3 += 1
+    if StudentList[3]['Field'] == student_dictionary['Field']:
+        sc4 += 1
+    if StudentList[4]['Field'] == student_dictionary['Field']:
+        sc5 += 1
+    if StudentList[5]['Field'] == student_dictionary['Field']:
+        sc6 += 1
+    if StudentList[6]['Field'] == student_dictionary['Field']:
+        sc7 += 1
+    if StudentList[7]['Field'] == student_dictionary['Field']:
+        sc8 += 1
+    if StudentList[8]['Field'] == student_dictionary['Field']:
+        sc9 += 1
+    if StudentList[9]['Field'] == student_dictionary['Field']:
+        sc10 += 1
+
+    ###############################################################################
+
+    if StudentList[0]['Year'] == student_dictionary['Year']:
+        sc1 += 1
+    if StudentList[1]['Year'] == student_dictionary['Year']:
+        sc2 += 1
+    if StudentList[2]['Year'] == student_dictionary['Year']:
+        sc3 += 1
+    if StudentList[3]['Year'] == student_dictionary['Year']:
+        sc4 += 1
+    if StudentList[4]['Year'] == student_dictionary['Year']:
+        sc5 += 1
+    if StudentList[5]['Year'] == student_dictionary['Year']:
+        sc6 += 1
+    if StudentList[6]['Year'] == student_dictionary['Year']:
+        sc7 += 1
+    if StudentList[7]['Year'] == student_dictionary['Year']:
+        sc8 += 1
+    if StudentList[8]['Year'] == student_dictionary['Year']:
+        sc9 += 1
+    if StudentList[9]['Year'] == student_dictionary['Year']:
+        sc10 += 1
+
+    ###############################################################################
+
+    if StudentList[0]['Hobby'] == student_dictionary['Hobby']:
+        sc1 += 1
+    if StudentList[1]['Hobby'] == student_dictionary['Hobby']:
+        sc2 += 1
+    if StudentList[2]['Hobby'] == student_dictionary['Hobby']:
+        sc3 += 1
+    if StudentList[3]['Hobby'] == student_dictionary['Hobby']:
+        sc4 += 1
+    if StudentList[4]['Hobby'] == student_dictionary['Hobby']:
+        sc5 += 1
+    if StudentList[5]['Hobby'] == student_dictionary['Hobby']:
+        sc6 += 1
+    if StudentList[6]['Hobby'] == student_dictionary['Hobby']:
+        sc7 += 1
+    if StudentList[7]['Hobby'] == student_dictionary['Hobby']:
+        sc8 += 1
+    if StudentList[8]['Hobby'] == student_dictionary['Hobby']:
+        sc9 += 1
+    if StudentList[9]['Hobby'] == student_dictionary['Hobby']:
+        sc10 += 1
+
+    ###############################################################################
+
+    counter_dictionary = {
+        'Zach': sc1, 'Edward': sc2, 'Ragan': sc3,
+        'Samuel': sc4, 'Alosia': sc5, 'Evelyn': sc6, 'James': sc7,
+        'Liam': sc8, 'Emma': sc9, 'Noah': sc10}
+
+    print(f"\n{counter_dictionary}")
+
+    max_interest = max(counter_dictionary, key=counter_dictionary.get)
+
     print('')
-    print('--- Your Dragon Connect is: ', MaxInterest)    
+    print('--- Your Dragon Connect is: ', max_interest)
     print('')
     print('*** Returning to Main Menu ***')
-    doWhat()
+    do_what()
 
-######################  BlazerPath Application  ###############################
-######################  Quinton, Zach, Edward   ###############################
 
-import os.path
+# BlazerPath App -------------------------------------------------------------------------------------------------------
+
 
 ###############################################################################
 
 def blazerpath():
-    
     print('')
     print('-----------------------------------------------------------------------')
     print('----------------------- BlazerPath Application ------------------------')
     print('-----------------------------------------------------------------------')
     print('')
-    
-    blazerpath = []
+
+    blazer_path = []
     counter = 0
-    
-###############################################################################    
-    
-    #Check for required student files
+
+    ###############################################################################
+
+    # Check for required student files
     for items in range(1):
-        
+
         for FinancialAid in range(1):
-            
+
             if os.path.exists("fafsa.txt"):
-                blazerpath.append(1)
-            
+                blazer_path.append(1)
+
             else:
-                blazerpath.append(2)
+                blazer_path.append(2)
                 print('')
                 print("---", "Please submit FAFSA to receive award letter.")
-        
+
         for Transcript in range(1):
-            
+
             if os.path.exists("transcript.txt"):
-                blazerpath.append(1)
-            
+                blazer_path.append(1)
+
             else:
-                blazerpath.append(2)
+                blazer_path.append(2)
                 print('')
                 print("---", "Please submit transcript to continue.")
-        
+
         for Immunizations in range(1):
-            
+
             if os.path.exists("immune.txt"):
-                blazerpath.append(1)
-            
+                blazer_path.append(1)
+
             else:
-                blazerpath.append(2)
+                blazer_path.append(2)
                 print('')
                 print("---", "Please submit immunizations to continue.")
-        
+
         for Orientation in range(1):
-            attended=input(
-            "--- Did student attend orientation? (Yes or No) ")
-            
+            attended = input(
+                "--- Did student attend orientation? (Yes or No) ")
+
             if attended == "Yes" or attended == "yes":
-                blazerpath.append(1)
-            
+                blazer_path.append(1)
+
             else:
-                blazerpath.append(2)
+                blazer_path.append(2)
                 print('')
-                print("---", 
-                "Must attend orientation before registering for classes.")
-            
+                print("---",
+                      "Must attend orientation before registering for classes.")
+
             for Registration in range(1):
-               
+
                 if os.path.exists("registration.txt"):
-                    blazerpath.append(1)
-                
+                    blazer_path.append(1)
+
                 else:
-                    blazerpath.append(2)
+                    blazer_path.append(2)
                     print('')
-                    print("---", "Increase your knowledge and choose a class.")    
-        
-###############################################################################        
-        
-        #Add up until the number = the required items
-        for i in blazerpath:
-            
+                    print("---", "Increase your knowledge and choose a class.")
+
+                ###############################################################################
+
+        # Add up until the number = the required items
+        for i in blazer_path:
+
             if i == 1:
                 counter += 1
 
-###############################################################################  
-    
-    #checking what you have to see if you've met the requirements
-    if counter == len(blazerpath):
+    ###############################################################################
+
+    # checking what you have to see if you've met the requirements
+    if counter == len(blazer_path):
         print('')
         print('---', "You have completed all necessary requirements!")
         print('')
         print("---", "Welcome to the Dragons Den! <ARRRRGGGHHHHH!!!!")
         print('')
         print('*** Returning to Main Menu ***')
-        doWhat()
-    
+        do_what()
+
     elif counter == 0:
         print('')
         print('---', "You are missing all necessary requirements")
@@ -413,8 +412,8 @@ def blazerpath():
         print("---", "Time to start your path to being a blazer.")
         print('')
         print('*** Returning to Main Menu ***')
-        doWhat()
-    
+        do_what()
+
     else:
         print('')
         print('---', 'You have met some of the necessary requirements.')
@@ -422,15 +421,10 @@ def blazerpath():
         print("---", "You're almost a blazer, don't give up!")
         print('')
         print('*** Returning to Main Menu ***')
-        doWhat()
+        do_what()
+
 
 ###############################################################################
 
-#Framework (main) Function Call
-main()              
-
-    
-            
-
-    
-
+# Framework (main) Function Call
+main()

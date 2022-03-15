@@ -29,13 +29,4 @@ wild,man
 cow,boy
 papy,zebra
 print(''),print('-----------------------------------------------------------------------')
-Quinton,baby
-Quinton,balls
-Quinton,denden
-Quinton,Coley
-quinton,coley
-quinton,coley
-quinton,coley
-quinton,coley
-Quinton,Coley
-BigNateyD,NateyNate
+qcoley,dx8mqwgke
